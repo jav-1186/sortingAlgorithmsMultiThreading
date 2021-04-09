@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="jveit_algMultiThreading" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coz-ye-qiT">
+                                <rect key="frame" x="37" y="54" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="linkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N =" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hko-q6-ESa">
+                                <rect key="frame" x="117" y="54" width="30" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1wh-fE-DlO">
+                                <rect key="frame" x="155" y="50" width="177" height="32"/>
+                                <segments>
+                                    <segment title="16"/>
+                                    <segment title="32"/>
+                                    <segment title="48"/>
+                                    <segment title="64"/>
+                                </segments>
+                                <connections>
+                                    <action selector="arrayChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Lrj-rz-SVo"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cfw-Oi-LFe">
+                                <rect key="frame" x="20" y="105" width="374" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="rwY-tp-o2C"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Insertion"/>
+                                    <segment title="Selection"/>
+                                    <segment title="Quick"/>
+                                    <segment title="Bubble"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortOneChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="9ls-LR-ZNu"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-kN-1rr">
+                                <rect key="frame" x="20" y="478" width="374" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="tA5-Sc-50h"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Insertion"/>
+                                    <segment title="Selection"/>
+                                    <segment title="Quick"/>
+                                    <segment title="Bubble"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortOneChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Gnd-9C-GqS"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hko-q6-ESa" firstAttribute="leading" secondItem="coz-ye-qiT" secondAttribute="trailing" constant="43" id="0l3-sm-f3P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eDV-kN-1rr" secondAttribute="trailing" constant="20" id="9Ek-Yz-BeU"/>
+                            <constraint firstItem="Cfw-Oi-LFe" firstAttribute="top" secondItem="1wh-fE-DlO" secondAttribute="bottom" constant="24" id="Gab-fu-Nuy"/>
+                            <constraint firstItem="hko-q6-ESa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="HWS-Ud-DLr"/>
+                            <constraint firstItem="eDV-kN-1rr" firstAttribute="trailing" secondItem="Cfw-Oi-LFe" secondAttribute="trailing" id="PHn-D7-cQt"/>
+                            <constraint firstItem="1wh-fE-DlO" firstAttribute="leading" secondItem="hko-q6-ESa" secondAttribute="trailing" constant="8" symbolic="YES" id="UaC-Uz-l10"/>
+                            <constraint firstItem="Cfw-Oi-LFe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VlB-uP-8z9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cfw-Oi-LFe" secondAttribute="trailing" constant="20" id="YQ1-Ee-t4l"/>
+                            <constraint firstItem="coz-ye-qiT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="cFC-5G-tdF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1wh-fE-DlO" secondAttribute="trailing" constant="82" id="dzT-l1-LEU"/>
+                            <constraint firstItem="1wh-fE-DlO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="eES-u0-OZC"/>
+                            <constraint firstItem="eDV-kN-1rr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fhi-97-BRl"/>
+                            <constraint firstItem="eDV-kN-1rr" firstAttribute="top" secondItem="Cfw-Oi-LFe" secondAttribute="bottom" constant="342" id="j99-HH-bDL"/>
+                            <constraint firstItem="eDV-kN-1rr" firstAttribute="leading" secondItem="Cfw-Oi-LFe" secondAttribute="leading" id="rqN-oe-Ym6"/>
+                            <constraint firstItem="coz-ye-qiT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="t9V-Fp-sq3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="arraySize" destination="1wh-fE-DlO" id="I9C-SL-hVx"/>
+                        <outlet property="sortOne" destination="Cfw-Oi-LFe" id="Isb-p6-eGO"/>
+                        <outlet property="sortTwo" destination="eDV-kN-1rr" id="KV0-eo-ePr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
