@@ -55,7 +55,7 @@
                                     <action selector="sortOneChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="9ls-LR-ZNu"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-kN-1rr">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-kN-1rr">
                                 <rect key="frame" x="20" y="478" width="374" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="tA5-Sc-50h"/>

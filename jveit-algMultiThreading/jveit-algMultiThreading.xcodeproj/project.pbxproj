@@ -14,7 +14,6 @@
 		8E172062261CC38800A9491C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E172061261CC38800A9491C /* Assets.xcassets */; };
 		8E172065261CC38800A9491C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E172063261CC38800A9491C /* LaunchScreen.storyboard */; };
 		8E17206E261EB18E00A9491C /* animationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E17206D261EB18E00A9491C /* animationView.swift */; };
-		8E172071261F781F00A9491C /* sortAlgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E172070261F781F00A9491C /* sortAlgs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		8E172064261CC38800A9491C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E172066261CC38800A9491C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E17206D261EB18E00A9491C /* animationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animationView.swift; sourceTree = "<group>"; };
-		8E172070261F781F00A9491C /* sortAlgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sortAlgs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 				8E172058261CC38200A9491C /* AppDelegate.swift */,
 				8E17205A261CC38300A9491C /* SceneDelegate.swift */,
 				8E17205C261CC38300A9491C /* ViewController.swift */,
-				8E172070261F781F00A9491C /* sortAlgs.swift */,
 				8E17206D261EB18E00A9491C /* animationView.swift */,
 				8E17205E261CC38300A9491C /* Main.storyboard */,
 				8E172061261CC38800A9491C /* Assets.xcassets */,
@@ -147,7 +144,6 @@
 				8E17206E261EB18E00A9491C /* animationView.swift in Sources */,
 				8E172059261CC38200A9491C /* AppDelegate.swift in Sources */,
 				8E17205B261CC38300A9491C /* SceneDelegate.swift in Sources */,
-				8E172071261F781F00A9491C /* sortAlgs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

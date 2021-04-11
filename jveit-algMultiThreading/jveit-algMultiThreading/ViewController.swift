@@ -3,24 +3,31 @@
 //  jveit-algMultiThreading
 //
 //  Created by Jeffrey Veit on 4/6/21.
-//
+//  DePaul CSC 491 Assignment #1
 
 import UIKit
 
 class ViewController: UIViewController {
 
+    // The segmented controls for array size, selection of sorting algorithms
     @IBOutlet weak var arraySize: UISegmentedControl!
     @IBOutlet weak var sortOne: UISegmentedControl!
     @IBOutlet weak var sortTwo: UISegmentedControl!
     
+    // Arrays to be sorted by top and bottom view
     var N = [Int]()
     var Q = [Int]()
     var size = [16, 32, 48, 64]
+    
+    // Creating my own GCD Queue for multithreading
     let myQueue = DispatchQueue(label: "worker1")
+    
+    // Two UIViews to animate the arrays being sorted
     let container = UIView()
     let container2 = UIView()
     
     
+    // Loading the custom views, fillings the arrays, and running pre-determined sorting algorithms on them
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -43,8 +50,11 @@ class ViewController: UIViewController {
         shuffle(&Q)
         print(N)
         print(Q)
+        insertionSort(&N, "N")
+        selectionSort(&Q, "Q")
     }
     
+    // Action for changing the array size based on user selection and shuffling
     @IBAction func arrayChange(_ sender: UISegmentedControl)
     {
         let index = arraySize.selectedSegmentIndex
@@ -63,14 +73,21 @@ class ViewController: UIViewController {
         
     }
     
+    // Action to sort the arrays once a new algorithm is selected
     @IBAction func sortOneChange(_ sender: UISegmentedControl)
     {
         let index = sortOne.selectedSegmentIndex
         let index2 = sortTwo.selectedSegmentIndex
         
+        // Arrays are shuffled in case the same array size was chosen
+        shuffle(&N)
+        shuffle(&Q)
+        
+        // Asynchronous multithreading for sorting
         myQueue.async
         { [self] in
             
+            // Inplace sort, determined by index of segment selected
             switch index
             {
                 case 0: insertionSort(&N, "N")
@@ -80,6 +97,7 @@ class ViewController: UIViewController {
                 default: print("Error")
             }
             
+            // Inplace sort, determined by index of segment selected - Bottom one
             switch index2
             {
                 case 0: insertionSort(&Q, "Q")
@@ -89,6 +107,7 @@ class ViewController: UIViewController {
                 default: print("Error")
             }
             
+            // Console
             print(N)
             print(Q)
         }
@@ -113,12 +132,14 @@ class ViewController: UIViewController {
         for i in 0 ..< a.count
         {
             var j = i
+            var timer : Int = 0
             while j > 0 && a[j-1] > a[j]
             {
                 a.swapAt(j-1, j)
                 j -= 1
+                timer += 5
             }
-            arr.append(i)
+            arr.append(timer)
         }
         update(arr, set)
     }
@@ -128,16 +149,19 @@ class ViewController: UIViewController {
         var arr = [Int]()
         for i in 0..<a.count - 1
         {
+            var timer : Int = 0
             var k = i
             for j in i + 1..<a.count where a[j] < a[k]
             {
                 k = j
+                timer += 5
             }
             if k != i
             {
                 a.swapAt(k, i)
+
             }
-            arr.append(i)
+            arr.append(timer)
         }
         update(arr, set)
     }
@@ -148,40 +172,56 @@ class ViewController: UIViewController {
         var arr = [Int]()
         for i in 0..<a.count
         {
+            var timer : Int = 0
             for j in 0..<a.count-i-1
             {
                 if a[j] > a[j + 1]
                 {
                     a.swapAt(j + 1, j)
+                    timer += 5
                 }
             }
-            arr.append(i)
+            arr.append(timer)
         }
         update(arr, set)
         
     }
     
+    var arrQ = [Int]()
+    
     // Quick sort algorithm
     func quickSort(_ a: inout [Int], _ startIndex: Int, _ endIndex: Int, _ set: String)
     {
-        var arr = [Int]()
         var i = startIndex
         var j = endIndex
-        arr.append(i)
-
+        
+        var timer : Int = 0
         let piv = (startIndex + (endIndex - startIndex) / 2)
         let pivot_location = a[piv]
+        
+        timer = piv * 5
+        arrQ.append(timer)
+        print(i)
+        print(j)
+        
+        if i == (j - 1)
+        {
+            update(arrQ, set)
+        }
 
         while i <= j
         {
+            
             while a[i] < pivot_location
             {
                 i+=1
+                timer += 5
             }
             
             while a[j] > pivot_location
             {
                 j-=1
+                timer += 5
             }
 
             if i <= j
@@ -195,8 +235,6 @@ class ViewController: UIViewController {
             
         }
         
-        update(arr, set)
-
         if startIndex < j
         {
             quickSort(&a, startIndex, j, set)
@@ -206,12 +244,13 @@ class ViewController: UIViewController {
         {
             quickSort(&a, i, endIndex, set)
         }
+        
     }
     
-    
-    
+    // Removes subviews after a new algorithm is selected and clears the quicksort array since it is recursive
     func clear(_ set: String)
     {
+        arrQ.removeAll()
         
         if set == "N"
         {
@@ -231,6 +270,7 @@ class ViewController: UIViewController {
         
     }
     
+    // Function to send data on main thread to be animated using subviews and custom UIView class
     func update (_ a: [Int], _ set: String)
     {
         DispatchQueue.main.async
@@ -248,13 +288,11 @@ class ViewController: UIViewController {
                        switch set
                        {
                             case "N":
-                                print("NNNNN")
                                 let bar = animationView()
                                 bar.drawish(x * i, a[i] * 5)
                                 bar.translatesAutoresizingMaskIntoConstraints = false
                                 container.addSubview(bar)
                             case "Q":
-                                print("QQQ")
                                 let bar = animationView()
                                 bar.drawishBelow(x * i, a[i] * 5)
                                 bar.translatesAutoresizingMaskIntoConstraints = false
